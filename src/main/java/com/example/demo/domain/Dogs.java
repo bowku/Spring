@@ -1,12 +1,26 @@
 package com.example.demo.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Dogs {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
+	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
+//	@Column(unique=true)
 	private Integer age;
+	@Column(nullable = false)
 	private String breed;
-	
+
 	public Dogs(Integer id, String name, Integer age, String breed) {
 		super();
 		this.id = id;
@@ -53,12 +67,7 @@ public class Dogs {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", age=" + age + ", breed=" + breed + "]";
+		return "Dog [id=" + id + ", name=" + name + ", age=" + age + ", breed=" + breed + "]";
 	}
-	
-	
 
-	
-	
-	
 }
